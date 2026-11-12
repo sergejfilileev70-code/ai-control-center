@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>AI Control Center</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><div class="mark">AI</div><div><h1>AI Control Center</h1><p>Единая рабочая среда ChatGPT + Claude</p></div></div>
+      <span class="status"><i></i> Cloud-ready MVP</span>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow">MULTI-AGENT WORKSPACE</p>
+        <h2>Два эксперта.<br><em>Один проверенный результат.</em></h2>
+        <p class="sub">Ставьте задачу, выбирайте сценарий взаимодействия и сравнивайте независимые ответы.</p>
+      </div>
+      <div class="agents">
+        <div class="agent"><span class="orb gpt">G</span><div><b>ChatGPT</b><small>Аналитик и координатор</small></div></div>
+        <div class="agent"><span class="orb claude">C</span><div><b>Claude</b><small>Эксперт и критик</small></div></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><p class="eyebrow">НОВАЯ ЗАДАЧА</p><h3>Что будем исследовать?</h3></div><span class="lock">🔒 Ключи остаются на сервере</span></div>
+      <label for="password">Пароль приложения</label>
+      <input id="password" type="password" placeholder="Задаётся владельцем в настройках Render" autocomplete="current-password">
+      <label for="mode">Режим работы</label>
+      <select id="mode">
+        <option value="review">Проверка: ChatGPT → критика Claude → итог ChatGPT</option>
+        <option value="parallel">Параллельный независимый анализ → синтез</option>
+        <option value="sequential">Последовательное улучшение ответа</option>
+      </select>
+      <label for="message">Текст задачи</label>
+      <textarea id="message" rows="6" maxlength="12000" placeholder="Например: Разработай SEO-стратегию карточки товара для Wildberries. Укажи гипотезы, метрики и план проверки."></textarea>
+      <div class="actions"><span id="counter">0 / 12000</span><button id="send">Запустить анализ <span>↗</span></button></div>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="result-title"><div><p class="eyebrow">РЕЗУЛЬТАТ ОБРАБОТКИ</p><h3>Отчёт двух агентов</h3></div><span id="modeLabel" class="tag"></span></div>
+      <article class="answer final"><div class="answer-head"><b>Итоговый ответ</b><span>Синтез ChatGPT</span></div><div id="final" class="prose"></div></article>
+      <div class="twocol">
+        <article class="answer"><div class="answer-head"><b>ChatGPT</b><span>Первичный анализ</span></div><div id="gpt" class="prose"></div></article>
+        <article class="answer"><div class="answer-head"><b>Claude</b><span>Независимый анализ / критика</span></div><div id="claude" class="prose"></div></article>
+      </div>
+    </section>
+    <footer><span>AI Control Center · MVP 0.1</span><span>Не вводите пароли и конфиденциальные данные в запросы к моделям.</span></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
